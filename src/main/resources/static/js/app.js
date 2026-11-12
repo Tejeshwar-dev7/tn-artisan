@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const r=document.querySelector('#role'),f=document.querySelector('#artisanFields');if(r&&f){const s=()=>{f.hidden=r.value!=='ARTISAN';f.querySelectorAll('input').forEach(i=>i.required=r.value==='ARTISAN')};r.addEventListener('change',s);s();if(new URLSearchParams(location.search).get('role')==='ARTISAN'){r.value='ARTISAN';s()}}});
