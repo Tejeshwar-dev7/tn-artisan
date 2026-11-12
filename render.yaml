@@ -3,7 +3,7 @@ services:
     name: tn-artisan
     runtime: docker
     plan: free
-    healthCheckPath: /faq
+    healthCheckPath: /healthz
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: hosted
