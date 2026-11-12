@@ -8,4 +8,4 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /workspace/target/artisanconnect.war /app/artisanconnect.war
 EXPOSE 10000
-ENTRYPOINT ["java","-jar","/app/artisanconnect.war"]
+ENTRYPOINT ["sh","-c","exec java -XX:ActiveProcessorCount=1 -XX:TieredStopAtLevel=1 -jar /app/artisanconnect.war --server.address=${SERVER_ADDRESS:-0.0.0.0} --server.port=${PORT:-10000}"]

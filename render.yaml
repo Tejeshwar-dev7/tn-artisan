@@ -8,7 +8,11 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: hosted
       - key: JAVA_TOOL_OPTIONS
-        value: "-Xmx300m -XX:+UseSerialGC"
+        value: "-Xms64m -Xmx300m -XX:+UseSerialGC -XX:ActiveProcessorCount=1 -XX:TieredStopAtLevel=1"
+      - key: PORT
+        value: "10000"
+      - key: SERVER_ADDRESS
+        value: "0.0.0.0"
       - key: JWT_SECRET
         generateValue: true
       - key: APP_ADMIN_EMAIL
