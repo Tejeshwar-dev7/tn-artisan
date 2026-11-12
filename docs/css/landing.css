@@ -1,0 +1,107 @@
+.craft-landing{--forest:#263d32;--olive:#66765a;--clay:#9b4f36;--ivory:#f8f5ee;--cream:#efe9dc;--sand:#d9cdbb;--ink:#292a25;color:var(--ink);background:var(--ivory);padding:clamp(14px,3.2vw,48px) 0 0}
+body:has(.craft-landing) .tn-header{position:sticky;top:0;z-index:30}
+.craft-landing [hidden]{display:none!important}
+.craft-landing a{color:var(--forest)}
+.landing-frame{width:min(1440px,calc(100% - 2 * clamp(12px,4vw,64px)));margin:auto;overflow:hidden;border-radius:clamp(24px,4vw,48px);border:1px solid var(--sand);background:var(--cream)}
+.landing-hero{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:clamp(12px,3vw,44px);padding:clamp(26px,5vw,78px)}
+.landing-kicker{font-size:.69rem;font-weight:700;letter-spacing:.15em;color:var(--clay);margin:0 0 15px}
+.landing-hero h1,.craft-landing h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.055em;line-height:1.04}
+.landing-hero h1{font-size:clamp(46px,6.8vw,110px);margin:0 0 24px}
+.landing-hero h1 span,.landing-hero h1 em{display:block}
+.landing-hero h1 em{color:var(--clay);font-size:.83em}
+.landing-lead,.landing-story p,.landing-heritage p{max-width:48ch;line-height:1.75}
+.landing-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.craft-landing .landing-button{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;background:var(--forest);color:white;border:1px solid var(--forest);text-decoration:none;font:600 .9rem 'DM Sans',sans-serif;transition:background .2s,translate .2s}
+.craft-landing .landing-button.outline{background:transparent;color:var(--forest);border-color:var(--olive)}
+.landing-button:hover{translate:0 -2px}
+.landing-composition{position:relative;isolation:isolate;min-width:0;aspect-ratio:1.05}
+.landing-orbit{position:absolute;inset:12% 4%;border:1px solid #a7967e;border-radius:50%;rotate:-28deg}
+.landing-composition img{position:absolute;object-fit:cover;display:block;border-radius:20px;border:5px solid var(--ivory);box-shadow:0 12px 32px #292a2522}
+.landing-main-photo{inset:1% 20% 3% 20%;width:60%;height:96%;object-position:50% 58%}
+.landing-side-photo.metal{width:28%;height:34%;right:0;top:10%;object-position:50% 53%}
+.landing-side-photo.textile{width:29%;height:31%;left:0;bottom:12%}
+.landing-photo-caption{position:absolute;bottom:0;right:2%;display:flex;align-items:center;gap:25px;background:var(--ivory);padding:14px 17px;border-radius:17px;text-decoration:none;box-shadow:0 8px 30px #292a2523}
+.landing-photo-caption small{display:block;color:var(--clay);font-size:.61rem;letter-spacing:.12em;margin-bottom:4px}
+.landing-strip{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:center;border-top:1px solid var(--sand);background:var(--ivory);padding:19px;font-size:.86rem}
+.landing-strip a{text-decoration:none}
+.landing-strip a:hover{text-decoration:underline}
+.landing-section{width:min(1200px,calc(100% - 2 * clamp(16px,5vw,64px)));margin:clamp(46px,8vw,112px) auto;scroll-margin-top:145px}
+.craft-landing h2{font-size:clamp(33px,5vw,65px);margin:0 0 16px}
+.landing-heading{margin-bottom:24px}
+.landing-heading.split{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end}
+.landing-heading.split>div{margin-right:auto}
+.landing-categories,.landing-products,.landing-steps,.landing-reviews{display:grid;gap:18px}
+.landing-categories,.landing-reviews{grid-template-columns:repeat(3,minmax(0,1fr))}
+.landing-products,.landing-steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+.landing-category{position:relative;display:grid;align-items:end;overflow:hidden;aspect-ratio:1.48;border-radius:24px;text-decoration:none;background:var(--forest)}
+.landing-category img,.landing-story img,.landing-product img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.landing-category img{position:absolute;inset:0}
+.landing-category span{z-index:1;display:flex;justify-content:space-between;gap:8px;background:linear-gradient(transparent,#1b241ddd);padding:34px 15px 14px;color:white;font-weight:600}
+.landing-category:hover img,.landing-product-image:hover img{transform:scale(1.045)}
+.landing-product,.landing-reviews article{border:1px solid var(--sand);background:#fffdfa;border-radius:23px;padding:12px;position:relative}
+.landing-product-image{display:block;overflow:hidden;aspect-ratio:1.16;border-radius:15px;background:var(--cream)}
+.landing-product h3{font:600 1rem 'DM Sans',sans-serif;margin:12px 0 4px}
+.landing-product h3 a{text-decoration:none}
+.landing-product p{font-size:.83rem;margin:0 0 7px;color:#595e52}
+.landing-price{display:flex;justify-content:space-between;gap:8px;font-size:.86rem}
+.landing-save{position:absolute;top:20px;right:20px;width:38px;height:38px;border:0;border-radius:50%;background:var(--ivory);color:var(--forest);font-size:22px}
+.landing-save[aria-pressed=true]{color:var(--clay)}
+.landing-story{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(20px,6vw,80px)}
+.landing-story-image{height:clamp(250px,32vw,410px);overflow:hidden;border-radius:30px}
+.landing-story img{object-position:center 59%}
+.landing-heritage,.landing-final{padding:clamp(25px,6vw,70px);background:var(--cream);border-radius:32px}
+.landing-final{text-align:center;background:var(--forest);color:var(--ivory)}
+.landing-final .landing-button{background:var(--ivory);color:var(--forest)}
+.landing-steps{padding-left:0;list-style:none;counter-reset:step}
+.landing-steps li{border-top:1px solid var(--sand);padding:15px 0;counter-increment:step}
+.landing-steps li::before{content:"0" counter(step);display:block;color:var(--clay);margin-bottom:9px}
+.landing-steps span{display:block;font-size:.88rem;margin-top:6px}
+.landing-reviews article{padding:20px;overflow-wrap:anywhere}
+.landing-reviews blockquote{margin:10px 0}
+@media(prefers-reduced-motion:no-preference){
+ .hero-enter{animation:landing-rise .72s cubic-bezier(.2,.65,.3,1) both}
+ .landing-intro h1 span:nth-child(1){animation-delay:90ms}
+ .landing-intro h1 span:nth-child(2){animation-delay:170ms}
+ .landing-intro h1 em{animation-delay:250ms}
+ .landing-lead{animation-delay:330ms}
+ .landing-actions .hero-enter:first-child{animation-delay:410ms}
+ .landing-actions .hero-enter:last-child{animation-delay:490ms}
+ .landing-composition{animation-delay:200ms}
+ .motion-ready [data-motion]:not(.in-view):not(:focus-within){opacity:0;transform:translateY(20px)}
+ .motion-ready [data-motion]{transition:opacity .55s,transform .55s;transition-delay:var(--stagger,0ms)}
+ .motion-ready [data-motion].in-view h2{animation:landing-rise .62s both}
+ @keyframes landing-rise{from{opacity:0;transform:translateY(21px)}to{opacity:1;transform:translateY(0)}}
+}
+@media(max-width:900px){.landing-products,.landing-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.landing-hero,.landing-story{grid-template-columns:1fr}.landing-composition{max-width:465px;width:100%;margin:15px auto 0}.landing-categories,.landing-reviews{grid-template-columns:repeat(2,minmax(0,1fr))}.landing-category{aspect-ratio:1.05}.landing-category span{font-size:.79rem;padding-inline:10px}.landing-section{scroll-margin-top:190px}}
+@media(max-width:360px){.landing-products,.landing-reviews{grid-template-columns:1fr}}
+
+.craft-landing .community-frame{width:100%;margin-bottom:clamp(36px,6vw,84px)}
+.community-frame .landing-main-photo{inset:2% 14% 3% 12%;width:74%;height:95%;object-position:50% 50%}
+.community-frame .landing-side-photo{top:13%;width:32%;height:37%}
+.ngo-page.craft-landing,.market-motion.craft-landing{padding-bottom:clamp(30px,5vw,70px)}
+.craft-landing .eyebrow{color:var(--clay)}
+.craft-landing .artform-card,.craft-landing .mission-grid article{background:#fffdfa;border-color:var(--sand)}
+.craft-landing .platform-why{display:block;margin-bottom:24px}
+.craft-landing .closing-tribute{background:var(--forest)}
+.craft-landing .closing-tribute h2,.craft-landing .closing-tribute .eyebrow{color:var(--ivory)}
+.craft-landing .closing-tribute::before,.craft-landing .closing-tribute::after{animation:none}
+.ngo-page [id]{scroll-margin-top:150px}
+.public-maker .maker-profile{max-width:none;background:var(--cream);border:1px solid var(--sand);border-radius:30px;padding:clamp(18px,4vw,50px)}
+.public-maker .product-image{overflow:hidden}
+.public-maker .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.market-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;color:var(--forest);font-size:.8rem;margin:8px 0}
+.market-meta a{text-decoration:underline;text-underline-offset:3px}
+.market-meta a:hover{color:var(--clay)}
+.market-motion .marketplace-card{border-color:var(--sand);background:#fffdfa}
+.market-motion .catalog-title-row h1{color:var(--ink)}
+.market-motion .market-add-form button:not(:disabled){background:var(--forest);transition:background .2s}
+.market-motion .market-add-form button:hover:not(:disabled){background:var(--clay)}
+@media(prefers-reduced-motion:no-preference) and (hover:hover){
+ .market-motion .marketplace-card:hover{translate:0 -5px;box-shadow:0 14px 30px #263d3222;transition:opacity .55s,transform .55s,translate .22s,box-shadow .22s}
+ .market-motion .market-product-photo:hover img,.public-maker .product-card:hover img{transform:scale(1.05)}
+}
+@media(prefers-reduced-motion:reduce){
+ .craft-landing .marketplace-card,.craft-landing .artform-card,.craft-landing .market-product-photo img,.public-maker .product-image img{transition:none}
+ .craft-landing .marketplace-card:hover,.craft-landing .artform-card:hover,.craft-landing .market-product-photo:hover img{transform:none;translate:none}
+}
