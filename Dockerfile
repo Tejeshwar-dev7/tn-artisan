@@ -7,5 +7,5 @@ RUN mvn -q -DskipTests package
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /workspace/target/artisanconnect.war /app/artisanconnect.war
-EXPOSE 8080
+EXPOSE 10000
 ENTRYPOINT ["java","-jar","/app/artisanconnect.war"]
