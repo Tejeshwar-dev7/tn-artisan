@@ -1,230 +1,462 @@
-
-
-
-
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TN ARTISAN &#183; Tamil Nadu crafts</title><link rel="icon" href="images/tn-mark.svg"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><link href="css/organic.css" rel="stylesheet"><link href="css/catalog.css" rel="stylesheet"><link href="css/tn.css" rel="stylesheet"><link href="css/checkout-tracking.css" rel="stylesheet"></head><body>
-<header class="tn-header"><div class="tn-header-top container"><a class="tn-brand" href="index.html"><img src="images/tn-mark.svg" width="42" height="42" alt="">TN ARTISAN</a><div class="tn-account"></div></div>
-<nav class="tn-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="products.html">Marketplace</a><a href="about.html">Artisans &amp; NGOs</a><a href="for-sellers.html">Sell with us</a><a href="reviews.html">Reviews</a><a href="faq.html">Help</a></nav></header><main><aside style="background:#e8eadf;color:#263d32;padding:10px 18px;text-align:center;font:500 14px system-ui">Portfolio preview · Browse the catalogue and craft stories. Checkout and accounts run in the Java app. <a href="https://github.com/Tejeshwar-dev7/tn-artisan" style="color:inherit;font-weight:700">View source on GitHub ↗</a></aside>
-
-<link rel="stylesheet" href="css/landing.css">
-<div class="craft-landing" id="top">
- <section class="landing-frame">
-  <div class="landing-hero">
-   <div class="landing-intro">
-    <p class="landing-kicker hero-enter">THE CRAFT MARKETPLACE OF TAMIL NADU</p>
-    <h1><span class="hero-enter">Crafted by</span><span class="hero-enter">tradition.</span><em class="hero-enter">Made to last.</em></h1>
-    <p class="landing-lead hero-enter">Find handmade pieces from Tamil Nadu and get to know the makers and traditions behind them.</p>
-    <div class="landing-actions"><a class="landing-button hero-enter" href="products.html">Explore collection <span aria-hidden="true">&#8599;</span></a><a class="landing-button outline hero-enter" href="#makers">Meet the artisans</a></div>
-   </div>
-   <div class="landing-composition hero-enter">
-    <div class="landing-orbit" aria-hidden="true"></div>
-    <img class="landing-main-photo" src="images/refresh/painting-closeup.png" alt="A brush adding detail to a gold Thanjavur painting" fetchpriority="high">
-    <img class="landing-side-photo metal" src="images/refresh/peacock-lamp.png" alt="A brass peacock lamp">
-    <img class="landing-side-photo textile" src="images/refresh/textile-detail.png" alt="Hands working on patterned cloth">
-    <a class="landing-photo-caption" href="about.html"><span><small>IN THE WORKSHOP</small><b>Thanjavur painting</b></span><span aria-hidden="true">&#8599;</span></a>
-   </div>
-  </div>
-  <div class="landing-strip"><a href="#crafts">Browse by craft &#8595;</a><a href="#featured">Featured pieces &#8595;</a></div>
- </section>
-
- <section class="landing-section" id="crafts">
-  <header class="landing-heading" data-motion><p class="landing-kicker">BROWSE BY CRAFT</p><h2>Explore the art of Tamil Nadu.</h2></header>
-  <div class="landing-categories">
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    <a class="landing-category" data-motion href="products-category-1.html"><img src="images/shiva-parvati-oval.png" alt="" loading="lazy"><span>Thanjavur Paintings <b aria-hidden="true">&#8599;</b></span></a>
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    <a class="landing-category" data-motion href="products-category-3.html"><img src="images/refresh/nandi-family.png" alt="" loading="lazy"><span>Swamimalai Bronze <b aria-hidden="true">&#8599;</b></span></a>
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    <a class="landing-category" data-motion href="products-category-4.html"><img src="images/refresh/annam-lamp.png" alt="" loading="lazy"><span>Nachiarkoil Brass Lamps <b aria-hidden="true">&#8599;</b></span></a>
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    <a class="landing-category" data-motion href="products-category-5.html"><img src="images/refresh/cloth-painter.png" alt="" loading="lazy"><span>Kalamkari &amp; Textiles <b aria-hidden="true">&#8599;</b></span></a>
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    <a class="landing-category" data-motion href="products-category-6.html"><img src="images/catalogue/stone-ganesha.jpg" alt="" loading="lazy"><span>Mamallapuram Stone Carving <b aria-hidden="true">&#8599;</b></span></a>
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    <a class="landing-category" data-motion href="products-category-7.html"><img src="images/commons/temple-wood-carving.jpg" alt="" loading="lazy"><span>Tamil Nadu Wood Carving <b aria-hidden="true">&#8599;</b></span></a>
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    
-   
-    
-    
-     
-     
-     
-     
-     
-     
-    
-    
-   
-  </div>
- </section>
-
- <section class="landing-section" id="featured">
-  <header class="landing-heading split" data-motion><div><p class="landing-kicker">THE COLLECTION</p><h2>Handpicked creations.</h2></div><button class="landing-button outline" id="saved-filter" type="button" aria-pressed="false" hidden>Saved pieces</button><a href="products.html">View all products &#8599;</a></header>
-  <p id="saved-empty" hidden>No saved pieces in this collection yet.</p>
-  <div class="landing-products">
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-58.html"><img src="images/catalogue/5049934bb8f57b8660a0.jpg" alt="Carved Stone Oil Lamp Stand" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="58" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-58.html">Carved Stone Oil Lamp Stand</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;4,800.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-56.html"><img src="images/catalogue/8468af03bcd181a6ff6f.jpg" alt="Temple-Arch Stone Relief Tile" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="56" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-56.html">Temple-Arch Stone Relief Tile</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;9,400.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-57.html"><img src="images/catalogue/7617f6323563a7a42cb4.jpg" alt="Makara Border Stone Plaque" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="57" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-57.html">Makara Border Stone Plaque</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;11,200.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-55.html"><img src="images/catalogue/fde837ad5c76f20fa0fa.jpg" alt="Nandi Stone Desk Sculpture" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="55" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-55.html">Nandi Stone Desk Sculpture</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;6,200.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-54.html"><img src="images/catalogue/685133981b9acd2abe55.jpg" alt="Mamallapuram Granite Ganesha" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="54" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-54.html">Mamallapuram Granite Ganesha</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;7,800.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-53.html"><img src="images/catalogue/fa99806647e485bfcbbe.jpg" alt="Small Dancing Ganesha Wood Sculpture" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="53" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-53.html">Small Dancing Ganesha Wood Sculpture</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;5,100.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-52.html"><img src="images/catalogue/96f41001c290d7bbc762.jpg" alt="Carved Palm-Leaf Book Stand" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="52" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-52.html">Carved Palm-Leaf Book Stand</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;2,750.00</b></div>
-    </article>
-   
-    <article class="landing-product" data-motion>
-     <a class="landing-product-image" href="products-51.html"><img src="images/catalogue/673b1f026c41c86591b2.jpg" alt="Lotus-Motif Wall Bracket Pair" loading="lazy"></a>
-     <button class="landing-save" type="button" data-save="51" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
-     <h3><a href="products-51.html">Lotus-Motif Wall Bracket Pair</a></h3>
-     <p>TN ARTISAN Studio</p>
-     <div class="landing-price"><b>&#8377;3,200.00</b></div>
-    </article>
-   
-  </div>
- </section>
-
- <section class="landing-section landing-story" id="makers">
-  <div class="landing-story-image" data-motion><img src="images/refresh/studio.png" alt="An artist working on a detailed drawing surrounded by framed work" loading="lazy"></div>
-  <div data-motion><p class="landing-kicker">MEET THE ARTISANS</p><h2>Every creation has a story.</h2><p>See the care behind the finished piece, from the first brushstroke to the final polish. Maker profiles on product pages tell you who made each piece and where their craft comes from.</p><a class="landing-button" href="about.html">Meet the makers &#8599;</a></div>
- </section>
-
- <section class="landing-section landing-heritage" data-motion>
-  <p class="landing-kicker">OUR CRAFT HERITAGE</p><h2>Skills passed from hand to hand.</h2><p>Explore how makers work with gold relief, cast metal, carved wood and painted cloth. Each purchase gives a small workshop another way to reach customers.</p><a href="about.html#our-why">Our purpose &#8599;</a>
- </section>
- <section class="landing-section">
-  <header class="landing-heading" data-motion><h2>From the workshop to your home.</h2></header>
-  <ol class="landing-steps"><li data-motion><b>Discover</b><span>Browse by craft or material.</span></li><li data-motion><b>Meet the maker</b><span>Read the maker’s story and product details.</span></li><li data-motion><b>Place your order</b><span>Check stock and choose how to pay.</span></li><li data-motion><b>Follow the delivery</b><span>See order updates in your account.</span></li></ol>
- </section>
- <section class="landing-section">
-  <header class="landing-heading split" data-motion><h2>From our customers.</h2><a href="reviews.html">All reviews &#8599;</a></header>
-  <p>No customer reviews yet.</p>
- </section>
- <section class="landing-section landing-final" data-motion><h2>Bring home a piece of tradition.</h2><p>Find a handmade piece with a story you’ll want to share.</p><a class="landing-button" href="products.html">Explore the collection &#8599;</a></section>
-</div>
-<script src="js/landing.js" defer></script>
-</main><footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between gap-3"><div><b class="tn-brand-footer"><img src="images/tn-mark.svg" width="32" height="32" alt="">TN ARTISAN</b><div>Made by hand. Rooted in Tamil Nadu.</div><div class="mt-2"><a href="mission.html">Our mission</a> &#183; <a href="for-sellers.html">For artisans</a> &#183; <a href="for-customers.html">For customers</a></div></div><div class="small">Independent marketplace for Tamil Nadu craft.</div><div class="small"><a href="faq.html">Shopping help</a> &#183; <a href="reviews.html">Reviews</a></div></div></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="js/app.js"></script><script src="js/tn-gallery.js"></script></body></html>
-
-
-
+
+
+
+
+
+
+
+
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TN ARTISAN &#183; Tamil Nadu crafts</title><link rel="icon" href="images/tn-mark.svg"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="css/app.css" rel="stylesheet"><link href="css/organic.css" rel="stylesheet"><link href="css/catalog.css" rel="stylesheet"><link href="css/tn.css" rel="stylesheet"><link href="css/checkout-tracking.css" rel="stylesheet"><link rel="stylesheet" href="css/preview.css"></head><body>
+
+
+<header class="preview-header">
+  <div class="preview-header-inner">
+    <a class="preview-brand" href="index.html"><img src="images/tn-mark.svg" width="38" height="38" alt="">TN ARTISAN</a>
+    <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="products.html">Marketplace</a><a href="about.html">Artisans &amp; NGOs</a><a href="for-sellers.html">Sell with us</a><a href="reviews.html">Reviews</a><a href="faq.html">Help</a></nav>
+    <form class="preview-search" role="search" action="products.html" method="get">
+      <label for="preview-query" class="preview-visually-hidden">Search handmade crafts</label>
+      <input id="preview-query" name="q" type="search" placeholder="Search handmade crafts" required maxlength="120">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</header><main><aside class="preview-notice">Portfolio preview. <a href="https://github.com/Tejeshwar-dev7/tn-artisan#readme">Run the full app ↗</a></aside>
+
+
+
+<link rel="stylesheet" href="css/landing.css">
+
+<div class="craft-landing" id="top">
+
+ <section class="landing-frame">
+
+  <div class="landing-hero">
+
+   <div class="landing-intro">
+
+    <p class="landing-kicker hero-enter">THE CRAFT MARKETPLACE OF TAMIL NADU</p>
+
+    <h1><span class="hero-enter">Crafted by</span><span class="hero-enter">tradition.</span><em class="hero-enter">Made to last.</em></h1>
+
+    <p class="landing-lead hero-enter">Find handmade pieces from Tamil Nadu and get to know the makers and traditions behind them.</p>
+
+    <div class="landing-actions"><a class="landing-button hero-enter" href="products.html">Explore collection <span aria-hidden="true">&#8599;</span></a><a class="landing-button outline hero-enter" href="#makers">Meet the artisans</a></div>
+
+   </div>
+
+   <div class="landing-composition hero-enter">
+
+    <div class="landing-orbit" aria-hidden="true"></div>
+
+    <img class="landing-main-photo" src="images/refresh/painting-closeup.png" alt="A brush adding detail to a gold Thanjavur painting" fetchpriority="high">
+
+    <img class="landing-side-photo metal" src="images/refresh/peacock-lamp.png" alt="A brass peacock lamp">
+
+    <img class="landing-side-photo textile" src="images/refresh/textile-detail.png" alt="Hands working on patterned cloth">
+
+    <a class="landing-photo-caption" href="about.html"><span><small>IN THE WORKSHOP</small><b>Thanjavur painting</b></span><span aria-hidden="true">&#8599;</span></a>
+
+   </div>
+
+  </div>
+
+  <div class="landing-strip"><a href="#crafts">Browse by craft &#8595;</a><a href="#featured">Featured pieces &#8595;</a></div>
+
+ </section>
+
+
+
+ <section class="landing-section" id="crafts">
+
+  <header class="landing-heading" data-motion><p class="landing-kicker">BROWSE BY CRAFT</p><h2>Explore the art of Tamil Nadu.</h2></header>
+
+  <div class="landing-categories">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a class="landing-category" data-motion href="products-category-1.html"><img src="images/shiva-parvati-oval.png" alt="" loading="lazy"><span>Thanjavur Paintings <b aria-hidden="true">&#8599;</b></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a class="landing-category" data-motion href="products-category-3.html"><img src="images/refresh/nandi-family.png" alt="" loading="lazy"><span>Swamimalai Bronze <b aria-hidden="true">&#8599;</b></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a class="landing-category" data-motion href="products-category-4.html"><img src="images/refresh/annam-lamp.png" alt="" loading="lazy"><span>Nachiarkoil Brass Lamps <b aria-hidden="true">&#8599;</b></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a class="landing-category" data-motion href="products-category-5.html"><img src="images/refresh/cloth-painter.png" alt="" loading="lazy"><span>Kalamkari &amp; Textiles <b aria-hidden="true">&#8599;</b></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a class="landing-category" data-motion href="products-category-6.html"><img src="images/catalogue/stone-ganesha.jpg" alt="" loading="lazy"><span>Mamallapuram Stone Carving <b aria-hidden="true">&#8599;</b></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a class="landing-category" data-motion href="products-category-7.html"><img src="images/commons/temple-wood-carving.jpg" alt="" loading="lazy"><span>Tamil Nadu Wood Carving <b aria-hidden="true">&#8599;</b></span></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+ </section>
+
+
+
+ <section class="landing-section" id="featured">
+
+  <header class="landing-heading split" data-motion><div><p class="landing-kicker">THE COLLECTION</p><h2>Handpicked creations.</h2></div><button class="landing-button outline" id="saved-filter" type="button" aria-pressed="false" hidden>Saved pieces</button><a href="products.html">View all products &#8599;</a></header>
+
+  <p id="saved-empty" hidden>No saved pieces in this collection yet.</p>
+
+  <div class="landing-products">
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-58.html"><img src="images/catalogue/5049934bb8f57b8660a0.jpg" alt="Carved Stone Oil Lamp Stand" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="58" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-58.html">Carved Stone Oil Lamp Stand</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;4,800.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-56.html"><img src="images/catalogue/8468af03bcd181a6ff6f.jpg" alt="Temple-Arch Stone Relief Tile" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="56" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-56.html">Temple-Arch Stone Relief Tile</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;9,400.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-57.html"><img src="images/catalogue/7617f6323563a7a42cb4.jpg" alt="Makara Border Stone Plaque" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="57" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-57.html">Makara Border Stone Plaque</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;11,200.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-55.html"><img src="images/catalogue/fde837ad5c76f20fa0fa.jpg" alt="Nandi Stone Desk Sculpture" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="55" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-55.html">Nandi Stone Desk Sculpture</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;6,200.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-54.html"><img src="images/catalogue/685133981b9acd2abe55.jpg" alt="Mamallapuram Granite Ganesha" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="54" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-54.html">Mamallapuram Granite Ganesha</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;7,800.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-53.html"><img src="images/catalogue/fa99806647e485bfcbbe.jpg" alt="Small Dancing Ganesha Wood Sculpture" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="53" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-53.html">Small Dancing Ganesha Wood Sculpture</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;5,100.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-52.html"><img src="images/catalogue/96f41001c290d7bbc762.jpg" alt="Carved Palm-Leaf Book Stand" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="52" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-52.html">Carved Palm-Leaf Book Stand</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;2,750.00</b></div>
+
+    </article>
+
+
+
+    <article class="landing-product" data-motion>
+
+     <a class="landing-product-image" href="products-51.html"><img src="images/catalogue/673b1f026c41c86591b2.jpg" alt="Lotus-Motif Wall Bracket Pair" loading="lazy"></a>
+
+     <button class="landing-save" type="button" data-save="51" aria-label="Save product" aria-pressed="false" hidden>&#9825;</button>
+
+     <h3><a href="products-51.html">Lotus-Motif Wall Bracket Pair</a></h3>
+
+     <p>TN ARTISAN Studio</p>
+
+     <div class="landing-price"><b>&#8377;3,200.00</b></div>
+
+    </article>
+
+
+
+  </div>
+
+ </section>
+
+
+
+ <section class="landing-section landing-story" id="makers">
+
+  <div class="landing-story-image" data-motion><img src="images/refresh/studio.png" alt="An artist working on a detailed drawing surrounded by framed work" loading="lazy"></div>
+
+  <div data-motion><p class="landing-kicker">MEET THE ARTISANS</p><h2>Every creation has a story.</h2><p>See the care behind the finished piece, from the first brushstroke to the final polish. Maker profiles on product pages tell you who made each piece and where their craft comes from.</p><a class="landing-button" href="about.html">Meet the makers &#8599;</a></div>
+
+ </section>
+
+
+
+ <section class="landing-section landing-heritage" data-motion>
+
+  <p class="landing-kicker">OUR CRAFT HERITAGE</p><h2>Skills passed from hand to hand.</h2><p>Explore how makers work with gold relief, cast metal, carved wood and painted cloth. Each purchase gives a small workshop another way to reach customers.</p><a href="about.html#our-why">Our purpose &#8599;</a>
+
+ </section>
+
+ <section class="landing-section">
+
+  <header class="landing-heading" data-motion><h2>From the workshop to your home.</h2></header>
+
+  <ol class="landing-steps"><li data-motion><b>Discover</b><span>Browse by craft or material.</span></li><li data-motion><b>Meet the maker</b><span>Read the maker’s story and product details.</span></li><li data-motion><b>Place your order</b><span>Check stock and choose how to pay.</span></li><li data-motion><b>Follow the delivery</b><span>See order updates in your account.</span></li></ol>
+
+ </section>
+
+ <section class="landing-section">
+
+  <header class="landing-heading split" data-motion><h2>From our customers.</h2><a href="reviews.html">All reviews &#8599;</a></header>
+
+  <p>No customer reviews yet.</p>
+
+ </section>
+
+ <section class="landing-section landing-final" data-motion><h2>Bring home a piece of tradition.</h2><p>Find a handmade piece with a story you’ll want to share.</p><a class="landing-button" href="products.html">Explore the collection &#8599;</a></section>
+
+</div>
+
+<script src="js/landing.js" defer></script>
+
+</main><footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between gap-3"><div><b class="tn-brand-footer"><img src="images/tn-mark.svg" width="32" height="32" alt="">TN ARTISAN</b><div>Made by hand. Rooted in Tamil Nadu.</div><div class="mt-2"><a href="mission.html">Our mission</a> &#183; <a href="for-sellers.html">For artisans</a> &#183; <a href="for-customers.html">For customers</a></div></div><div class="small">Independent marketplace for Tamil Nadu craft.</div><div class="small"><a href="faq.html">Shopping help</a> &#183; <a href="reviews.html">Reviews</a></div></div></footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="js/app.js"></script><script src="js/tn-gallery.js"></script><script src="js/preview.js" defer></script></body></html>

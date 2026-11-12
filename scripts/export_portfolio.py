@@ -35,6 +35,43 @@ def fetch(route):
         return response.read().decode("utf-8")
 
 
+def apply_preview_header(markup, filename):
+    nav_items = (
+        ("index.html", "Home"), ("products.html", "Marketplace"),
+        ("about.html", "Artisans &amp; NGOs"), ("for-sellers.html", "Sell with us"),
+        ("reviews.html", "Reviews"), ("faq.html", "Help"),
+    )
+    active = "products.html" if filename.startswith("products-") else filename
+    links = []
+    for href, label in nav_items:
+        current = ' aria-current="page"' if active == href else ""
+        links.append(f'<a href="{href}"{current}>{label}</a>')
+    header = f"""
+<header class="preview-header">
+  <div class="preview-header-inner">
+    <a class="preview-brand" href="index.html"><img src="images/tn-mark.svg" width="38" height="38" alt="">TN ARTISAN</a>
+    <nav aria-label="Main navigation">{''.join(links)}</nav>
+    <form class="preview-search" role="search" action="products.html" method="get">
+      <label for="preview-query" class="preview-visually-hidden">Search handmade crafts</label>
+      <input id="preview-query" name="q" type="search" placeholder="Search handmade crafts" required maxlength="120">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+</header>"""
+    markup = re.sub(r'<header class="(?:tn-header|preview-header)">.*?</header>', lambda _: header, markup, count=1, flags=re.S)
+    banner = (f'<aside class="preview-notice">Portfolio preview. '
+              f'<a href="{REPOSITORY}#readme">Run the full app ↗</a></aside>')
+    markup = re.sub(r'(<main>)(?:<aside[^>]*>.*?</aside>)?', lambda m: m[1] + banner, markup, count=1, flags=re.S)
+    if 'href="css/preview.css"' not in markup:
+        markup = markup.replace("</head>", '<link rel="stylesheet" href="css/preview.css"></head>', 1)
+    if 'src="js/preview.js"' not in markup:
+        markup = markup.replace("</body>", '<script src="js/preview.js" defer></script></body>', 1)
+    if filename == "products.html" and 'id="preview-results"' not in markup:
+        markup = markup.replace('<div class="listing-grid marketplace-grid">',
+            '<p id="preview-results" class="preview-results" role="status" hidden></p><div class="listing-grid marketplace-grid">', 1)
+    return markup
+
+
 def export():
     OUTPUT.mkdir(exist_ok=True)
     (OUTPUT / ".nojekyll").touch()
@@ -54,7 +91,7 @@ def export():
                     ):
                         pending.add(key)
 
-    assets = set()
+    assets = {"css/preview.css", "js/preview.js"}
     for route, markup in pages.items():
         markup = FORMS.sub("", markup)
         markup = re.sub(r'<a\b[^>]*href="/(?:cart|account|checkout|login|register|artisan-area|collection)(?:[/?#][^"]*)?"[^>]*>.*?</a>', "", markup, flags=re.I | re.S)
@@ -77,10 +114,7 @@ def export():
             return f'{attribute}="{escape(target, quote=True)}"'
 
         markup = ATTRIBUTES.sub(rewrite, markup)
-        banner = ('<aside style="background:#e8eadf;color:#263d32;padding:10px 18px;text-align:center;font:500 14px system-ui">'
-                  'Portfolio preview · Browse the catalogue and craft stories. Checkout and accounts run in the Java app. '
-                  f'<a href="{REPOSITORY}" style="color:inherit;font-weight:700">View source on GitHub ↗</a></aside>')
-        markup = markup.replace("<main>", "<main>" + banner, 1)
+        markup = apply_preview_header(markup, page_name(route))
         (OUTPUT / page_name(route)).write_text(markup, encoding="utf-8")
 
     for name in sorted(assets):
