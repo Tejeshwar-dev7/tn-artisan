@@ -4,12 +4,13 @@ import in.artisanconnect.repo.UserRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
-import org.springframework.web.util.UriUtils;
+import org.springframework.web.servlet.FlashMap;
+import org.springframework.web.servlet.support.SessionFlashMapManager;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 @Component
 public class AccountAwareLoginFailureHandler implements AuthenticationFailureHandler {
@@ -17,13 +18,17 @@ public class AccountAwareLoginFailureHandler implements AuthenticationFailureHan
     public AccountAwareLoginFailureHandler(UserRepository users) { this.users = users; }
     @Override public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         String email = request.getParameter("username");
-        if ("ADMIN".equals(request.getParameter("expectedRole"))) { response.sendRedirect("/login/admin?error"); return; }
-        if (email != null && users.findByEmailIgnoreCase(email.trim()).isEmpty()) {
-            String role = request.getParameter("expectedRole");
+        String role = request.getParameter("expectedRole");
+        if ("ADMIN".equals(role)) { response.sendRedirect("/login/admin?error"); return; }
+        if (exception instanceof BadCredentialsException && email != null && !email.isBlank()
+                && users.findByEmailIgnoreCase(email.strip()).isEmpty()) {
             String destination = "ARTISAN".equals(role) ? "/register/artisan" : "CUSTOMER".equals(role) ? "/register/customer" : "/register";
-            response.sendRedirect(destination + "?email=" + UriUtils.encode(email.trim(), StandardCharsets.UTF_8));
+            FlashMap flash = new FlashMap();
+            flash.setTargetRequestPath(request.getContextPath() + destination);
+            flash.put("missingAccountEmail", email.strip());
+            new SessionFlashMapManager().saveOutputFlashMap(flash, request, response);
+            response.sendRedirect(request.getContextPath() + destination);
         } else {
-            String role = request.getParameter("expectedRole");
             String destination = "ARTISAN".equals(role) ? "/login/artisan" : "CUSTOMER".equals(role) ? "/login/customer" : "/login";
             response.sendRedirect(destination + "?error");
         }
