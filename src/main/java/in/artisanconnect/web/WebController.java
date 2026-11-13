@@ -30,7 +30,13 @@ public class WebController {
  @GetMapping("/products/{id}") String product(@PathVariable Long id,Authentication auth,Model m){Product p=products.findById(id).orElseThrow();if(!p.active)throw new org.springframework.web.server.ResponseStatusException(HttpStatus.NOT_FOUND);m.addAttribute("product",p);var feedback=reviews.forProduct(id);m.addAttribute("reviews",feedback);m.addAttribute("canReview",reviews.eligible(id,auth));m.addAttribute("average",feedback.stream().mapToInt(row->((Number)row.get("rating")).intValue()).average().orElse(0));return "product";}
  @GetMapping("/passport/{id}") String passport(@PathVariable Long id,Model m){Product p=products.findById(id).orElseThrow();m.addAttribute("product",p);m.addAttribute("profile",artisans.findByUserId(p.artisan.id).orElse(null));return "passport";}
  @GetMapping("/artisan/{id}") String artisan(@PathVariable Long id,Model m){m.addAttribute("profile",artisans.findByUserId(id).orElseThrow());m.addAttribute("products",products.findByArtisanIdOrderByCreatedAtDesc(id).stream().filter(p->p.active).toList());return "artisan";}
- @GetMapping("/login") String login(Model m){m.addAttribute("loginRole",null);return "login";}
+ @GetMapping("/login")
+ String login(Model model) {
+  model.addAttribute("demoCustomerEmail", in.artisanconnect.config.DemoAccounts.CUSTOMER_EMAIL);
+  model.addAttribute("demoMakerEmail", in.artisanconnect.config.DemoAccounts.MAKER_EMAIL);
+  model.addAttribute("demoPassword", in.artisanconnect.config.DemoAccounts.PASSWORD);
+  return "login";
+ }
  @GetMapping("/login/admin") String adminLogin(Model m){m.addAttribute("loginRole","ADMIN");return "login";}
  @GetMapping("/login/customer") String customerLogin(Model m){return demoLogin(m, "CUSTOMER", in.artisanconnect.config.DemoAccounts.CUSTOMER_EMAIL);}
  @GetMapping("/login/artisan") String artisanLogin(Model m){return demoLogin(m, "ARTISAN", in.artisanconnect.config.DemoAccounts.MAKER_EMAIL);}
