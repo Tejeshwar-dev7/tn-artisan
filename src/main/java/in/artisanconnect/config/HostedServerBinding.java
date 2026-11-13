@@ -28,6 +28,17 @@ public class HostedServerBinding {
                 throw new IllegalStateException("Could not configure Tomcat for Render IPv4 traffic", exception);
             }
             factory.setPort(port);
+            // Only JSTL provides tag libraries. Scanning every dependency in the
+            // executable WAR is expensive on a small hosted instance.
+            factory.addContextCustomizers(context -> {
+                org.apache.tomcat.util.scan.StandardJarScanner scanner = new org.apache.tomcat.util.scan.StandardJarScanner();
+                org.apache.tomcat.util.scan.StandardJarScanFilter filter = new org.apache.tomcat.util.scan.StandardJarScanFilter();
+                filter.setTldSkip("*");
+                filter.setTldScan("jakarta.servlet.jsp.jstl-*.jar");
+                scanner.setJarScanFilter(filter);
+                scanner.setScanManifest(false);
+                context.setJarScanner(scanner);
+            });
         };
     }
 }
