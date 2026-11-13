@@ -28,6 +28,10 @@ public class HostedServerBinding {
                 throw new IllegalStateException("Could not configure Tomcat for Render IPv4 traffic", exception);
             }
             factory.setPort(port);
+            var documentRoot = new java.io.File(".");
+            if (new java.io.File(documentRoot, "WEB-INF/jsp").isDirectory()) {
+                factory.setDocumentRoot(documentRoot.getAbsoluteFile());
+            }
             // Only JSTL provides tag libraries. Scanning every dependency in the
             // executable WAR is expensive on a small hosted instance.
             factory.addContextCustomizers(context -> {
