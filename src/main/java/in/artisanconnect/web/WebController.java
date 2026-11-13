@@ -32,12 +32,22 @@ public class WebController {
  @GetMapping("/artisan/{id}") String artisan(@PathVariable Long id,Model m){m.addAttribute("profile",artisans.findByUserId(id).orElseThrow());m.addAttribute("products",products.findByArtisanIdOrderByCreatedAtDesc(id).stream().filter(p->p.active).toList());return "artisan";}
  @GetMapping("/login") String login(Model m){m.addAttribute("loginRole",null);return "login";}
  @GetMapping("/login/admin") String adminLogin(Model m){m.addAttribute("loginRole","ADMIN");return "login";}
- @GetMapping("/login/customer") String customerLogin(Model m){m.addAttribute("loginRole","CUSTOMER");return "login";}
- @GetMapping("/login/artisan") String artisanLogin(Model m){m.addAttribute("loginRole","ARTISAN");return "login";}
+ @GetMapping("/login/customer") String customerLogin(Model m){return demoLogin(m, "CUSTOMER", in.artisanconnect.config.DemoAccounts.CUSTOMER_EMAIL);}
+ @GetMapping("/login/artisan") String artisanLogin(Model m){return demoLogin(m, "ARTISAN", in.artisanconnect.config.DemoAccounts.MAKER_EMAIL);}
+ private String demoLogin(Model model, String role, String demoEmail) {
+  model.addAttribute("loginRole", role);
+  model.addAttribute("demoEmail", demoEmail);
+  model.addAttribute("demoPassword", in.artisanconnect.config.DemoAccounts.PASSWORD);
+  return "login";
+ }
  @GetMapping("/register") String register(Model m){m.addAttribute("preferredRole",null);return "register";}
  @GetMapping("/register/customer") String customerRegister(Model m){m.addAttribute("preferredRole","CUSTOMER");return "register";}
  @GetMapping("/register/artisan") String artisanRegister(Model m){m.addAttribute("preferredRole","ARTISAN");return "register";}
  @PostMapping("/register") String register(@RequestParam @NotBlank String name,@RequestParam @Email String email,@RequestParam @Size(min=8) String password,@RequestParam String role,@RequestParam(required=false) String shopName,@RequestParam(required=false) String craft,@RequestParam(required=false) String district,RedirectAttributes ra){
+  if (in.artisanconnect.config.DemoAccounts.isDemo(email.strip())) {
+   ra.addFlashAttribute("error", "Use your own email address to register.");
+   return "ARTISAN".equals(role) ? "redirect:/register/artisan" : "redirect:/register/customer";
+  }
   var existing=users.findByEmailIgnoreCase(email);if(existing.isPresent()){ra.addFlashAttribute("success","An account already exists for this email. Please sign in.");ra.addFlashAttribute("email",email);return "redirect:/login/"+(existing.get().role==User.Role.ARTISAN?"artisan":"customer");}
   User.Role r=("ARTISAN".equals(role)?User.Role.ARTISAN:User.Role.CUSTOMER);User u=users.save(new User(name.trim(),email.trim(),encoder.encode(password),r));
   if(r==User.Role.ARTISAN){ArtisanProfile p=new ArtisanProfile();p.user=u;p.shopName=(shopName==null||shopName.isBlank())?name+"'s Studio":shopName.trim();p.craft=craft;p.district=district;p.story="Tell customers about the people and traditions behind your work.";artisans.save(p);}

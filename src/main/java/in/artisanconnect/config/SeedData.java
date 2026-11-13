@@ -38,6 +38,10 @@ public class SeedData {
     admin.email = adminEmail;
     users.save(admin);
    }
+   seedDemoAccount(users, encoder, "Demo Customer", DemoAccounts.CUSTOMER_EMAIL, User.Role.CUSTOMER);
+   User demoMaker = seedDemoAccount(users, encoder, "Demo Maker", DemoAccounts.MAKER_EMAIL, User.Role.ARTISAN);
+   ensureProfile(artisans, demoMaker, "Demo Maker Studio", "Wood carving", "Thanjavur",
+     "A sample studio for exploring the maker dashboard.");
    User artisan = users.findByEmailIgnoreCase("meenakshi@artisanconnect.local").orElseGet(() -> users.save(
      new User("Meenakshi", "meenakshi@artisanconnect.local", encoder.encode(publicHosting ? UUID.randomUUID().toString() : "Artisan@123"), User.Role.ARTISAN)));
    ensureProfile(artisans, artisan, "Kaveri Kalai", "Thanjavur painting", "Thanjavur",
@@ -132,6 +136,15 @@ public class SeedData {
    Set<String> retiredCategoryNames = Set.of("Thanjavur Painting", "Bronze Icons", "Brass Lamps", "Wood Carving", "Stone Carving");
    categories.findAll().stream().filter(c -> retiredCategoryNames.contains(c.name) && !usedCategoryIds.contains(c.id)).forEach(categories::delete);
   };
+ }
+
+ private User seedDemoAccount(UserRepository users, PasswordEncoder encoder, String name, String email, User.Role role) {
+  User user = users.findByEmailIgnoreCase(email).orElseGet(() ->
+    users.save(new User(name, email, encoder.encode(DemoAccounts.PASSWORD), role)));
+  if (user.role != role || !name.equals(user.name)) {
+   throw new IllegalStateException("Reserved demo account email is already in use: " + email);
+  }
+  return user;
  }
 
  private void ensureProfile(ArtisanRepository profiles, User user, String shop, String craft, String district, String story) {

@@ -18,6 +18,7 @@ public class SecurityConfig {
  @Bean PasswordEncoder passwordEncoder(){return new BCryptPasswordEncoder();}
  @Bean UserDetailsService userDetailsService(UserRepository users){return username->users.findByEmailIgnoreCase(username).map(u->User.withUsername(u.email).password(u.passwordHash).roles(u.role.name()).disabled(!u.active).build()).orElseThrow(()->new UsernameNotFoundException("Account not found"));}
  @Bean SecurityFilterChain filterChain(HttpSecurity http,JwtAuthFilter jwtFilter,AccountAwareLoginFailureHandler failureHandler,AccountAwareLoginSuccessHandler successHandler)throws Exception{
+  http.addFilterBefore(new DemoReadOnlyFilter(), org.springframework.security.web.access.intercept.AuthorizationFilter.class);
   return http.authorizeHttpRequests(a->a.dispatcherTypeMatchers(jakarta.servlet.DispatcherType.FORWARD,jakarta.servlet.DispatcherType.ERROR).permitAll()
    .requestMatchers("/healthz","/","/products/**","/artisan/**","/passport/**","/crafts/**","/collection/**","/reviews","/about","/faq","/mission","/for-sellers","/for-customers","/register/**","/login/**","/css/**","/js/**","/images/**","/api/auth/**","/api/products/**","/swagger-ui/**","/v3/api-docs/**","/dev-db/**","/webhooks/razorpay").permitAll()
    .requestMatchers("/cart","/cart/**").permitAll()
