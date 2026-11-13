@@ -19,3 +19,5 @@ services:
         sync: false
       - key: APP_ADMIN_PASSWORD
         sync: false
+      - key: DATABASE_URL
+        sync: false

@@ -4,3 +4,6 @@ data/
 *.log
 .idea/
 .vscode/
+node_modules/
+.neon
+.env.local

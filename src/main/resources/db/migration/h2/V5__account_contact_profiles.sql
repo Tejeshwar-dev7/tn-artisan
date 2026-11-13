@@ -1,0 +1,7 @@
+ALTER TABLE users ADD phone VARCHAR(32);
+ALTER TABLE users ADD address_line1 VARCHAR(180);
+ALTER TABLE users ADD address_line2 VARCHAR(180);
+ALTER TABLE users ADD city VARCHAR(100);
+ALTER TABLE users ADD district VARCHAR(100);
+ALTER TABLE users ADD state VARCHAR(100);
+ALTER TABLE users ADD postal_code VARCHAR(12);
