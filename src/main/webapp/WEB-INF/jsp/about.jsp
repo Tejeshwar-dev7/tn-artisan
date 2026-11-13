@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <%@ include file="fragments/head.jspf" %>
-<link rel="stylesheet" href="/css/landing.css"><section class="craft-landing ngo-page"><div class="catalog-shell">
+<link rel="stylesheet" href="/css/landing.css?v=tribute-center"><section class="craft-landing ngo-page"><div class="catalog-shell">
 <div class="landing-frame community-frame"><div class="landing-hero">
  <div class="community-intro"><p class="landing-kicker hero-enter">ARTISANS &amp; NGOs</p><h1><span class="hero-enter">A living</span><em class="hero-enter">tradition.</em></h1><p class="landing-lead hero-enter">Meet the makers keeping Tamil Nadu’s crafts alive and explore how NGOs and craft groups can support their work.</p><div class="landing-actions"><a class="landing-button hero-enter" href="#our-why">Discover our purpose &#8595;</a><a class="landing-button outline hero-enter" href="#community-support">For artisans &amp; NGOs</a></div></div>
  <div class="landing-composition hero-enter"><div class="landing-orbit" aria-hidden="true"></div><img class="landing-main-photo" src="/images/kalamkari-workshop.png" alt="An artisan painting a Kalamkari textile"><img class="landing-side-photo metal" src="/images/wood-carver.png" alt="An artisan carving wood"><a class="landing-photo-caption" href="#art-forms"><span><small>IN THE WORKSHOP</small><b>Explore the craft traditions</b></span><span aria-hidden="true">&#8599;</span></a></div>

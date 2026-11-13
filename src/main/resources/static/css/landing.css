@@ -84,6 +84,7 @@ body:has(.craft-landing) .tn-header{position:sticky;top:0;z-index:30}
 .craft-landing .artform-card,.craft-landing .mission-grid article{background:#fffdfa;border-color:var(--sand)}
 .craft-landing .platform-why{display:block;margin-bottom:24px}
 .craft-landing .closing-tribute{background:var(--forest)}
+.craft-landing .closing-tribute h2{margin-inline:auto}
 .craft-landing .closing-tribute h2,.craft-landing .closing-tribute .eyebrow{color:var(--ivory)}
 .craft-landing .closing-tribute::before,.craft-landing .closing-tribute::after{animation:none}
 .ngo-page [id]{scroll-margin-top:150px}
